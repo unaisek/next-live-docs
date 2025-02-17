@@ -10,6 +10,7 @@ import { Input } from './ui/input';
 import { currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import { updateDocument } from '@/lib/actions/room.actions';
+import Loader from './Loader';
 
 
 const CollaborativeRoom = ({roomId, roomMetadata}: CollaborativeRoomProps) => {
@@ -38,6 +39,7 @@ const CollaborativeRoom = ({roomId, roomMetadata}: CollaborativeRoomProps) => {
         console.log(error);
         
       }
+      setLoading(false)
     }
   }
 
@@ -65,7 +67,7 @@ const CollaborativeRoom = ({roomId, roomMetadata}: CollaborativeRoomProps) => {
 
   return (
     <RoomProvider id={roomId}>
-      <ClientSideSuspense fallback={<div>Loading…</div>}>
+      <ClientSideSuspense fallback={<Loader />}>
         <div className="collaborative-room">
           <Header>
             <div
