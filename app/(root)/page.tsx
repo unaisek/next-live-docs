@@ -1,4 +1,5 @@
 import AddDocumentBtn from '@/components/AddDocumentBtn'
+import { DeleteModal } from '@/components/DeleteMoadal'
 import Header from '@/components/Header'
 import { getDocuments } from '@/lib/actions/room.actions'
 import { dateConverter } from '@/lib/utils'
@@ -59,6 +60,7 @@ const Home = async () => {
                     </p>
                   </div>
                 </Link>
+                <DeleteModal roomId={document.id} />
               </li>
             ))}
           </ul>
